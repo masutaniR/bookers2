@@ -14,7 +14,7 @@
       <a href="/"><span>Bookers</span></a>
       <% if user_signed_in? %>
         <li>
-          <%= link_to "Home", "/" %>
+          <%= link_to "Home", current_user %>
         </li>
         <li>
           <%= link_to "Users", "/users" %>
