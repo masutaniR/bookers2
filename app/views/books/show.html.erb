@@ -1,20 +1,18 @@
-<p id="notice">
- <%=  notice %>
-</p>
-
 <div class="container">
+<p id="notice">
+  <%= notice %>
+</p>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %> errors prohibited this obj from being saved:
+  <%= @book.errors.full_messages.each do |message| %>
+  <li>
+    <%= message %>
+  </li>
+  <% end %>
+<% end %>
   <div class="row">
     <div class="col-lg-4">
       <%= render 'users/info', user: @user %>
-
-      <% if @book.errors.any? %>
-        <%= @book.errors.count %> errors prohibited this obj from being saved:
-        <%= @book.errors.full_messages.each do |message| %>
-        <li>
-          <%= message %>
-        </li>
-        <% end %>
-      <% end %>
       <%= render 'books/newbook', book: @book %>
     </div>
 
@@ -24,23 +22,23 @@
 <table class="table">
   <tr>
     <td>
-      <%= link_to @book.user do %>
-      <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %><br />
-      <%= @book.user.name %>
+      <%= link_to @books.user do %>
+      <%= attachment_image_tag @books.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %><br />
+      <%= @books.user.name %>
       <% end %>
     </td>
     <td>
-      <%= link_to @book.title, book_path(@book.id) %>
+      <%= link_to @books.title, book_path(@books.id) %>
     </td>
     <td>
-      <%= @book.opinion %>
+      <%= @books.body %>
     </td>
-    <% if @book.user == current_user %>
+    <% if @books.user == current_user %>
     <td>
-      <%= link_to "Edit", edit_book_path(@book) %>
+      <%= link_to "Edit", edit_book_path(@books) %>
     </td>
     <td>
-      <%= link_to "Destroy", book_path(@book), method: :delete %>
+      <%= link_to "Destroy", book_path(@books), method: :delete %>
     </td>
     <% end %>
   </tr>
