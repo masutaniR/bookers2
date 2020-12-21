@@ -5,7 +5,17 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
-      <h1>sidebar</h1>
+      <%= render 'users/info', user: @user %>
+
+      <% if @book.errors.any? %>
+        <%= @book.errors.count %> errors prohibited this obj from being saved:
+        <%= @book.errors.full_messages.each do |message| %>
+        <li>
+          <%= message %>
+        </li>
+        <% end %>
+      <% end %>
+      <%= render 'books/newbook', book: @book %>
     </div>
 
 <div class="col-lg-8">
@@ -15,7 +25,7 @@
   <tr>
     <td>
       <%= link_to @book.user do %>
-      <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg" %><br />
+      <%= attachment_image_tag @book.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %><br />
       <%= @book.user.name %>
       <% end %>
     </td>
