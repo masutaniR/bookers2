@@ -11,9 +11,9 @@
 
   <body class="d-flex flex-column vh-100">
     <header style="background-color: #333631;">
-    <div class="container d-flex flex-row align-items-center">
+    <div class="container d-flex align-items-center">
       <a href="/"><span>Bookers</span></a>
-      <ul class="ml-auto d-flex flex-row list-unstyled">
+      <ul class="ml-auto d-flex align-items-center list-unstyled">
         <% if user_signed_in? %>
         <li class="nav-item p-3">
           <%= link_to current_user do %>
@@ -62,11 +62,11 @@
     </div>
     </header>
 
-    <main>
+    <main class="mx-auto">
       <%= yield %>
     </main>
 
-    <footer class="d-flex justify-content-center">
+    <footer class="d-flex justify-content-center p-5">
       <p>CopyRight Infratop.inc</p>
     </footer>
 

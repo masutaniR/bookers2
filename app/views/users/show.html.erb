@@ -1,8 +1,12 @@
 <p id="notice">
  <%=  notice %>
 </p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
 <h1>User info</h1>
-<table>
+<table class="table">
   <tr><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></tr>
   <tr>
     <th>name</th>
@@ -14,9 +18,11 @@
   </tr>
 </table>
 <p><%= link_to "Edit", edit_user_path(@user) %></p>
+</div>
 
+<div class="col-lg-8">
 <h1>Books</h1>
-<table>
+<table class="table">
   <tr>
     <th></th>
     <th>
@@ -40,3 +46,6 @@
   </tr>
   <% end %>
 </table>
+</div>
+  </div>
+</div>
