@@ -11,9 +11,13 @@
 
   <body class="d-flex flex-column vh-100">
     <header>
-    <nav class="navbar navbar-expand-mg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <a class="navbar-brand text-light" href="/"><span>Bookers</span></a>
-      <ul class="ml-auto d-flex list-unstyled align-items-center">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         <li class="nav-item p-3">
           <%= link_to current_user do %>
@@ -58,12 +62,15 @@
         </li>
       <% end %>
       </ul>
+      </div>
     </nav>
     </header>
 
     <main class="p-2">
       <% flash.each do |message_type, message| %>
-          <%= content_tag :div, message, class: message_type %>
+        <div class="alert alert-<%= message_type %>">
+          <%= message %>
+        </div>
       <% end %>
       <%= yield %>
     </main>

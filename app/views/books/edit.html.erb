@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-md-5 mx-auto">
       <h1>Editing Book</h1>
       <div class="text-danger">
       <% if @book.errors.any? %>
@@ -15,9 +15,9 @@
 
 <%= form_with model:@book, local: true do |f| %>
   <p class="mb-1">Title</p>
-  <%= f.text_field :title, class: "mb-3" %>
+  <%= f.text_field :title, class: "mb-3", style: "width: 100%;" %>
   <p class="mb-1">Opinion</p>
-  <%= f.text_area :body %><br />
+  <%= f.text_area :body, style: "width: 100%;" %><br />
   <%= f.submit 'Update Book', class: "btn btn-success text-light mt-2 mb-2" %><br />
 <% end %>
 <%= link_to "Show", book_path(@book.id) %> | <%= link_to "Back", books_path %>

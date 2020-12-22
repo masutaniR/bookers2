@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="mx-auto">
+    <div class="col-md-5 mx-auto">
       <h1>User info</h1>
       <div class="text-danger">
       <% if @user.errors.any? %>
@@ -15,11 +15,11 @@
 
 <%= form_with model:@user, local:true do |f| %>
   <label for="inputName">Name</label><br />
-  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: @user.name %><br />
+  <%= f.text_field :name, autofocus: true, id:"inputName", placeholder: @user.name, style: "width: 100%;" %><br />
   <label for="inputImage">Image</label><br />
   <%= f.attachment_field :profile_image, placeholder: "ProfileImage" %><br />
   <label for="inputIntroduction">Introduction</label><br />
-  <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder: @user.introduction %><br />
+  <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder: @user.introduction, style: "width: 100%;" %><br />
   <%= f.submit "Update User", class: "btn btn-secondary text-light mt-2" %>
 <% end %>
     </div>
