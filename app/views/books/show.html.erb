@@ -1,4 +1,3 @@
-
 <div class="text-danger">
 <% if @book.errors.any? %>
   <%= @book.errors.count %> errors prohibited this obj from being saved:
@@ -21,24 +20,37 @@
 
 <table class="table">
   <tr>
-    <td>
+    <% if @books.user == current_user %>
+    <td style="width: 5%;">
       <%= link_to @books.user do %>
       <%= attachment_image_tag @books.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %><br />
       <%= @books.user.name %>
       <% end %>
     </td>
-    <td>
+    <td style="width: 15%;">
       <%= link_to @books.title, book_path(@books.id) %>
     </td>
-    <td>
+    <td style="width: 50%;">
       <%= @books.body %>
     </td>
-    <% if @books.user == current_user %>
-    <td>
-      <%= link_to "Edit", edit_book_path(@books) %>
+    <td style="width: 10%;">
+      <%= link_to "Edit", edit_book_path(@books), class: "btn btn-success text-light" %>
     </td>
-    <td>
-      <%= link_to "Destroy", book_path(@books), method: :delete %>
+    <td style="width: 10%;">
+      <%= link_to "Destroy", book_path(@books), method: :delete, class: "btn btn-danger text-light" %>
+    </td>
+    <% else %>
+    <td style="width: 5%;">
+      <%= link_to @books.user do %>
+      <%= attachment_image_tag @books.user, :profile_image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg", size:'50x50' %><br />
+      <%= @books.user.name %>
+      <% end %>
+    </td>
+    <td style="width: 35%;">
+      <%= link_to @books.title, book_path(@books.id) %>
+    </td>
+    <td style="width: 60%;">
+      <%= @books.body %>
     </td>
     <% end %>
   </tr>

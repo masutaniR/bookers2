@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="mx-auto">
-      <h1 class="p-3">welcome to <i class="fas fa-book" aria-hidden="true"></i>Bookers !!</h1>
+      <h1 class="pt-3 pb-3">welcome to <i class="fas fa-book" aria-hidden="true"></i>Bookers !!</h1>
       <p>In <i class="fas fa-book" aria-hidden="true"></i><strong>Bookers</strong>,<br>
       you can share and exchange your opinions , inpressions , and emotions<br>
       about various books!</p>
-      <%= link_to "login", new_user_session_path %><br />
-      <%= link_to "sign up", new_user_registration_path %>
+      <a class="btn btn-info btn-sm btn-block mb-3 text-light" href="/users/sign_in">Log in</a>
+      <a class="btn btn-success btn-sm btn-block text-light" href="/users/sign_up">Sign Up</a>
     </div>
   </div>
 </div>

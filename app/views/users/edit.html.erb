@@ -20,7 +20,7 @@
   <%= f.attachment_field :profile_image, placeholder: "ProfileImage" %><br />
   <label for="inputIntroduction">Introduction</label><br />
   <%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder: @user.introduction %><br />
-  <%= f.submit "Update User" %>
+  <%= f.submit "Update User", class: "btn btn-secondary text-light mt-2" %>
 <% end %>
     </div>
   </div>
