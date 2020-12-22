@@ -10,10 +10,10 @@
   </head>
 
   <body class="d-flex flex-column vh-100">
-    <header style="background-color: #333631; line-height: 15px;">
-    <div class="container d-flex align-items-center">
-      <a class="text-light" href="/"><span>Bookers</span></a>
-      <ul class="ml-auto d-flex list-unstyled">
+    <header>
+    <nav class="navbar navbar-expand-mg navbar-dark bg-dark">
+      <a class="navbar-brand text-light" href="/"><span>Bookers</span></a>
+      <ul class="ml-auto d-flex list-unstyled align-items-center">
         <% if user_signed_in? %>
         <li class="nav-item p-3">
           <%= link_to current_user do %>
@@ -59,7 +59,6 @@
       <% end %>
       </ul>
     </nav>
-    </div>
     </header>
 
     <main class="p-2">
